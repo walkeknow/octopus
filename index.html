@@ -1,0 +1,170 @@
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    background-color: rgba(0, 0, 0, 0);
+    background-blend-mode: multiply;
+    overflow: hidden;
+  }
+  section {
+    display: flex;
+    place-content: center;
+    place-items: center;
+    flex-direction: column;
+    gap: 1rem;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: rgba(0, 0, 0, 0);
+
+    overflow: hidden;
+  }
+
+  h1 {
+    font-size: 6em;
+    color: white;
+  }
+  p {
+    font-size: 1.5em;
+    color: white;
+    font-family: verdana;
+  }
+
+  /* OCTOPUS */
+
+  .octo {
+    position: absolute;
+    display: grid;
+    grid: 6fr 1fr 2fr / 1fr;
+    height: fit-content;
+    animation: 30s swim ease-in-out infinite;
+  }
+  .octo-head {
+    grid-row: 1 / span 2;
+    grid-column: 1;
+    position: relative;
+    width: 80px;
+    height: 100px;
+
+    border-radius: 140% 140% 160% 150%;
+
+    background-color: #171717;
+
+    z-index: 10;
+
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+    padding-top: 40px;
+
+    animation: 1s squish ease-in-out alternate infinite;
+  }
+
+  .octo-eye {
+    width: 25px;
+    height: 25px;
+    color: black;
+    border-radius: 100%;
+    background: white;
+    z-index: 20;
+    padding: 3px;
+  }
+  .octo-iris {
+    width: 10px;
+    height: 10px;
+    left: 0;
+    background: slategrey;
+    border-radius: 100%;
+    z-index: 25;
+  }
+
+  .octo-arms {
+    grid-row: 2 / span 2;
+    grid-column: 1;
+    place-self: center;
+    display: flex;
+    flex-direction: row;
+
+    width: 70%;
+    justify-content: space-evenly;
+    z-index: 0;
+  }
+
+  .tentacle {
+    height: 35px;
+    width: 10px;
+    border-radius: 200% 10% 250% 10%;
+    background-color: #171717;
+  }
+
+  .tentacle:first-of-type {
+    margin-top: -5px;
+    animation: 0.5s wiggle ease-in-out alternate infinite;
+  }
+  .tentacle:nth-of-type(2) {
+    animation: 0.5s wiggle 0.5s ease-in-out alternate infinite;
+  }
+  .tentacle:nth-of-type(3) {
+    animation: 0.5s wiggle 0.2s ease-in-out alternate infinite;
+  }
+  .tentacle:nth-of-type(4) {
+    margin-top: -5px;
+    animation: 0.5s wiggle 0.3s ease-in-out alternate infinite;
+  }
+
+  /* ANIMATION */
+
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    30% {
+      transform: rotate(7deg);
+    }
+    60% {
+      transform: rotate(-10deg);
+    }
+  }
+  @keyframes squish {
+    from {
+      height: 100px;
+    }
+    to {
+      height: 90px;
+    }
+  }
+  @keyframes swim {
+    0% {
+      transform: translate3d(3rem, 14rem, 0) rotate(90deg);
+    }
+    20% {
+      transform: translate3d(15rem, -5rem, -5rem) rotate(20deg);
+    }
+    40% {
+      transform: translate3d(-4rem, -12rem, 1rem) rotate(-90deg);
+    }
+    70% {
+      transform: translate3d(-8rem, 5rem, -1rem) rotate(-180deg);
+    }
+    100% {
+      transform: translate3d(3rem, 14rem, 0) rotate(-280deg);
+    }
+  }
+</style>
+
+<section>
+  <div class="octo">
+    <div class="octo-head"></div>
+    <div class="octo-arms">
+      <div class="tentacle"></div>
+      <div class="tentacle"></div>
+      <div class="tentacle"></div>
+      <div class="tentacle"></div>
+    </div>
+  </div>
+</section>
